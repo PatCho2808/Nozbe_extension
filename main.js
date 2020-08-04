@@ -12,17 +12,20 @@ function addTasksToLists(tasks){
     let overdueTasks = document.getElementById('overdue_tasks');
     console.log(tasks);
     tasks.forEach(task => {
-        if(isTaskDueToday(task))
+        if(!isTaskCompleted(task))
         {
-            addTaskToList(task, todayTasks);
-        }
-        else if(isTaskOverdue(task))
-        {
-            addTaskToList(task, overdueTasks);
-        }
-        else if(isTaskPriority(task))
-        {
-            addTaskToList(task, priorityTasks);
+            if(isTaskDueToday(task))
+            {
+                addTaskToList(task, todayTasks);
+            }
+            else if(isTaskOverdue(task))
+            {
+                addTaskToList(task, overdueTasks);
+            }
+            else if(isTaskPriority(task))
+            {
+                addTaskToList(task, priorityTasks);
+            }
         }
     })
 }
@@ -52,4 +55,9 @@ function addTaskToList(task, list){
     let li = document.createElement('li');
     li.innerHTML = task.name;
     list.append(li);
+}
+
+function isTaskCompleted(task)
+{
+    return task.completed;
 }
