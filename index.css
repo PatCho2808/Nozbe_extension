@@ -5,12 +5,8 @@
     background-size: cover;
 }
 
-.container{
-    color: white;
-}
-
 .row{
-    padding-top: 100px;
+    padding-top: 3%;
 }
 
 .col {
@@ -19,8 +15,9 @@
 
 #time{
     font-size: 100px;
+    color:white;
 }
 
-h1{
-    color: darkred;
+ul{
+    list-style: none;
 }
