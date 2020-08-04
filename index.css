@@ -1,0 +1,22 @@
+#background{
+    background-image: url('background.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.container{
+    color: white;
+}
+
+.row{
+    padding-top: 150px;
+}
+
+.col {
+    text-align: center;
+}
+
+#time{
+    font-size: 100px;
+}
