@@ -9,11 +9,16 @@ window.onload = function() {
 function addTasksToLists(tasks){
     let todayTasks = document.getElementById('today_tasks');
     let priorityTasks = document.getElementById('priority_tasks');
+    let overdueTasks = document.getElementById('overdue_tasks');
     console.log(tasks);
     tasks.forEach(task => {
         if(isTaskDueToday(task))
         {
             addTaskToList(task, todayTasks);
+        }
+        else if(isTaskOverdue(task))
+        {
+            addTaskToList(task, overdueTasks);
         }
         else if(isTaskPriority(task))
         {
@@ -26,6 +31,15 @@ function isTaskDueToday(task){
     let today = new Date();
     let task_date = new Date(task.datetime);
     return today.getDate() === task_date.getDate() &&
+        today.getMonth() === task_date.getMonth() &&
+        today.getFullYear() === task_date.getFullYear();
+}
+
+function isTaskOverdue(task)
+{
+    let today = new Date();
+    let task_date = new Date(task.datetime);
+    return today.getDate() > task_date.getDate() &&
         today.getMonth() === task_date.getMonth() &&
         today.getFullYear() === task_date.getFullYear();
 }
