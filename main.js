@@ -1,16 +1,47 @@
 window.onload = function() {
-    let nozbe = new NozbeService();
-    nozbe.getTasks().then(
+    getTasksIfAuth(new NozbeService());
+}
+
+function getTasksIfAuth(nozbe){
+    chrome.storage.local.get(['access_token'],
+        result => {
+        if(result.access_token) {
+            getTasks(nozbe, result.access_token);
+        } else {
+            //let token = getTokenFromURL();
+            let token = '00be30e31b8a07ecae370f5f84f2f282ea9bc367';
+            if(token)
+            {
+                saveToken(token);
+                getTasks(nozbe, token);
+            } else {
+                nozbe.login();
+            }
+        }
+    });
+}
+
+function getTasks(nozbe, token){
+    nozbe.getTasks(token).then(
         result => addTasksToLists(result),
         error => console.log(error)
     );
+}
+
+function getTokenFromURL(){
+    let url = new URL(window.location);
+    return url.searchParams.get('access_token');
+}
+
+function saveToken(token){
+    chrome.storage.local.set({'access_token' : token},
+        () => console.log("Saved token to: " + token));
 }
 
 function addTasksToLists(tasks){
     let todayTasks = document.getElementById('today_tasks');
     let priorityTasks = document.getElementById('priority_tasks');
     let overdueTasks = document.getElementById('overdue_tasks');
-    console.log(tasks);
     tasks.forEach(task => {
         if(!isTaskCompleted(task))
         {
