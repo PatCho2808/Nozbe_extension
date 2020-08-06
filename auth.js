@@ -1,6 +1,6 @@
 class Auth
 {
-
+    TOKEN = '';
 
     isAuth()
     {

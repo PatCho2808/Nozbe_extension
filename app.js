@@ -105,30 +105,49 @@ class App
     }
 
     addFilterToList(category, div) {
+        let formCheck = this.createFormCheckElement();
+        formCheck.append(this.createInputElement(category));
+        formCheck.append(this.createLabelElement(category));
+        div.append(formCheck);
+    }
+
+    createFormCheckElement() {
+        let formCheck = document.createElement('div');
+        formCheck.className = "form-check";
+        return formCheck;
+    }
+
+    createLabelElement(category) {
+        let label = document.createElement('label');
+        label.classList = "form-check-label";
+        label.htmlFor = category.id;
+        label.innerText = category.name;
+        return label;
+    }
+
+    createInputElement(category) {
         let input = document.createElement('input');
         input.className = "form-check-input"
         input.type = "checkbox";
         input.value = category.id;
         input.id = category.id;
         input.name = 'categories';
-        let label = document.createElement('label');
-        label.classList = "form-check-label";
-        label.htmlFor = category.id;
-        label.innerText = category.name;
-        let formCheck = document.createElement('div');
-        formCheck.className = "form-check";
-        formCheck.append(input);
-        formCheck.append(label);
-        div.append(formCheck);
+        return input;
     }
 
     filter(filters)
     {
+        this.resetPriorityList();
         filters.forEach(filter => {
-            nozbe.getTasksByCategoryId(this.auth.getToken(), filter).then(
-                result => addTasksToLists(result),
+            this.nozbe.getTasksByCategoryId(this.auth.getToken(), filter).then(
+                result => this.addTasksToLists(result),
                 error => console.log(error)
             );
         })
+    }
+
+    resetPriorityList() {
+        let list = document.getElementById('priority_tasks');
+        list.innerHTML = "";
     }
 }
