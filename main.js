@@ -9,7 +9,7 @@ function getTasksIfAuth(nozbe){
             getTasks(nozbe, result.access_token);
         } else {
             //let token = getTokenFromURL();
-            let token = '00be30e31b8a07ecae370f5f84f2f282ea9bc367';
+
             if(token)
             {
                 saveToken(token);
