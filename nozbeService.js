@@ -14,7 +14,7 @@ class NozbeService
     }
 
     async getTasksByCategoryId(token, category_id){
-        const response = await fetch(`${this.URL}context?access_token=${token}&id=${category_id}`);
+        const response = await fetch(`${this.URL}tasks?access_token=${token}&type=context&id=${category_id}`);
         return response.json();
     }
 

@@ -21,3 +21,7 @@
 ul{
     list-style: none;
 }
+
+label{
+    padding-right: 10px;
+}
