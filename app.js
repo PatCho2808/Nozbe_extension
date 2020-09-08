@@ -13,7 +13,12 @@ class App
     {
         if(this.auth.isAuth())
         {
+            console.log("isauth");
             this.setupLists();
+        }
+        else 
+        {
+            this.auth.authorize
         }
     }
 

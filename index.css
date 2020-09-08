@@ -5,6 +5,10 @@
     background-size: cover;
 }
 
+#time{
+    font-size: 100px;
+}
+
 .row{
     padding-top: 3%;
 }
@@ -13,9 +17,12 @@
     text-align: center;
 }
 
-#time{
-    font-size: 100px;
-    color:white;
+.header{
+    background-color: rgb(55, 191, 71) !important;
+}
+
+.card-body{
+    background-color: #363636 !important;
 }
 
 ul{
@@ -24,4 +31,13 @@ ul{
 
 label{
     padding-right: 10px;
+}
+
+button{
+    background-color: rgb(55, 191, 71) !important;
+}
+
+body{
+    background-color: #363636 !important;
+    color: white !important;
 }
