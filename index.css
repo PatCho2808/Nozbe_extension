@@ -1,43 +1,48 @@
-#background{
-    background-image: url('background.jpg');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
+#background {
+  background-image: url("background.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
-#time{
-    font-size: 100px;
+#time {
+  font-size: 100px;
 }
 
-.row{
-    padding-top: 3%;
+.row {
+  padding-top: 3%;
 }
 
 .col {
-    text-align: center;
+  text-align: center;
 }
 
-.header{
-    background-color: rgb(55, 191, 71) !important;
+.header {
+  background-color: rgb(55, 191, 71) !important;
 }
 
-.card-body{
-    background-color: #363636 !important;
+.card-body {
+  background-color: #363636 !important;
 }
 
-ul{
-    list-style: none;
+ul {
+  list-style: none;
 }
 
-label{
-    padding-right: 10px;
+li {
+  border-bottom: 1px solid black;
+  padding: 4px;
 }
 
-button{
-    background-color: rgb(55, 191, 71) !important;
+label {
+  padding-right: 10px;
 }
 
-body{
-    background-color: #363636 !important;
-    color: white !important;
+button {
+  background-color: rgb(55, 191, 71) !important;
+}
+
+body {
+  background-color: #363636 !important;
+  color: white !important;
 }
