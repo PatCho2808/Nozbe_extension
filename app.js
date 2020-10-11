@@ -48,6 +48,7 @@ class App
                 }
                 else if(this.isTaskPriority(task))
                 {
+                    console.log(task); 
                     this.addTaskToList(task, priorityTasks);
                 }
             }
@@ -73,7 +74,7 @@ class App
     }
 
     isTaskPriority(task){
-        return task.next;
+        return task.next && !task.datetime;
     }
 
     addTaskToList(task, list){
