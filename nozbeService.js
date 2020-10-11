@@ -18,11 +18,11 @@ class NozbeService
         return response.json();
     }
 
-    login(){
-        window.open(`${this.URL}login?client_id=${this.getClientId()}`);
-    }
-
     getClientId(){
         return this.CLIENT_ID;
+    }
+
+    getAuthURL(){
+        return `${this.URL}login?client_id=${this.getClientId()}`; 
     }
 }

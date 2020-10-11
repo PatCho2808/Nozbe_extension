@@ -12,34 +12,23 @@ class Auth
         return this.TOKEN;
     }
 
-    authorize(nozbe)
+    authorize(nozbe, callback)
     {
         chrome.storage.local.get(['access_token'],
             result => {
                 if(result.access_token) {
                     this.TOKEN = result.access_token;
+                    callback();  
                 } else {
-                    let token = this.getTokenFromURL();
-                    if(token)
-                    {
-                        this.saveToken(token);
-                    } else {
-                        nozbe.login();
-                    }
+                    chrome.identity.launchWebAuthFlow({
+                        'url': nozbe.getAuthURL(),
+                        'interactive': true}, 
+                        function(url){
+                            let token =  new URL(url).searchParams.get('access_token'); 
+                            chrome.storage.local.set({'access_token' : token}); 
+                            callback(); 
+                        }); 
                 }
             });
-    }
-
-
-    getTokenFromURL()
-    {
-        let url = new URL(window.location);
-        return url.searchParams.get('access_token');
-    }
-
-    saveToken(token)
-    {
-        chrome.storage.local.set({'access_token' : token},
-            () => console.log("Saved token to: " + token));
     }
 }

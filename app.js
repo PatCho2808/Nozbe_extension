@@ -11,14 +11,9 @@ class App
 
     setupPage()
     {
-        if(this.auth.isAuth())
-        {
-            this.setupLists();
-        }
-        else 
-        {
-            this.auth.authorize(this.nozbe); 
-        }
+        this.auth.authorize(this.nozbe, () => {
+            this.setupLists(); 
+        }); 
     }
 
     setupLists()
