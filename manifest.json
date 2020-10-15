@@ -1,8 +1,9 @@
 {
   "name": "Nozbe extenstion",
-  "version": "1.0.1",
+  "version": "2.0",
   "description": "Show Nozbe's TO DO's",
   "manifest_version": 2,
+  "key": "omghmioihcbpnfpdbpclknlphkjckknf",
   "chrome_url_overrides" : {
     "newtab": "newTab.html"
   },
