@@ -1,4 +1,4 @@
-# Nozbe extension 
+# Nozbe chrome extension 
 
 Helps to keep track of tasks in [Nozbe](https://nozbe.com/pl/personal) application.
 
