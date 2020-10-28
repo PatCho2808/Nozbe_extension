@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prod": "npx webpack --config webpack.prod.config.js",
+    "dev": "npx webpack --config webpack.dev.config.js"
   },
   "repository": {
     "type": "git",
