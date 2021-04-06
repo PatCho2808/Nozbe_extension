@@ -1,0 +1,14 @@
+ul {
+	li {
+		padding: 0.3rem 0;
+		transition: all 0.2s;
+
+		&:not(:last-child) {
+			border-bottom: 1px solid $color-tertiary;
+		}
+
+		&:hover {
+			font-size: 2.5rem;
+		}
+	}
+}

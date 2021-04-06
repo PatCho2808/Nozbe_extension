@@ -19,6 +19,17 @@ module.exports = {
 				use: [MiniCssExtractPlugin.loader, 'css-loader']
 			},
 			{
+				test: /\.s[ac]ss$/i,
+				use: [
+					// Creates `style` nodes from JS strings
+					'style-loader',
+					// Translates CSS into CommonJS
+					'css-loader',
+					// Compiles Sass to CSS
+					'sass-loader'
+				]
+			},
+			{
 				test: /\.(png|jpe?g|gif)$/i,
 				use: [
 					{
@@ -38,7 +49,7 @@ module.exports = {
 			filename: 'newTab.html'
 		}),
 		new CopyPlugin({
-			patterns: [{ from: 'src/manifest.json', to: '' }]
+			patterns: [{ from: 'src/manifest.dev.json', to: 'manifest.json' }]
 		})
 	]
 };
